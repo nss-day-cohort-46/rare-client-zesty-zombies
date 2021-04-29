@@ -30,7 +30,7 @@ export const UserProfile = (ß) => {
                 <div className="profile__name">
                     Welcome: {user.first_name} {user.last_name}
                 </div>
-                {user.profile_image_url ? <img src="{user.profile_image_url}" alt="user's profile image"/> : <img src="./images/default-profile-image.png" alt="default profile image"/> }
+                {user.profile_image_url ? <img src="{user.profile_image_url}" alt="user's profile image"/> : "" }
                 <div className="profile__username">Email: {user.email}</div>
                 <div className="profile__bio">About you: {user.bio}</div>
                 {/* <div className="user__created_on">Rare User Since: <HumanDate date={user.created_on}></HumanDate></div> */}
