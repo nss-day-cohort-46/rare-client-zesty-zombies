@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from "react"
+import React, { useContext, useState, useEffect, useHistory } from "react"
 import { PostList } from "./PostList";
 import { HumanDate } from "../utils/HumanDate"
 import { PostContext } from "./PostProvider"
@@ -47,9 +47,8 @@ export const PostForm = (props) => {
                 imageUrl: post.imageUrl,
                 content: post.content
             })
+            
         } else {
-            // const dateObj = new Date.now()
-            debugger
             addPost({
                 userId: parseInt(localStorage.getItem("rare_user_id")),
                 categoryId: parseInt(post.categoryId),
@@ -58,7 +57,7 @@ export const PostForm = (props) => {
                 imageUrl: post.imageUrl,
                 content: post.content
             })
-            // .then(() => history.push("/posts"))
+            
         }
         setPost({ title: "", imageUrl: "", content: ""})
     }
@@ -128,6 +127,7 @@ export const PostForm = (props) => {
                 onClick={evt => {
                     evt.preventDefault()
                     constructNewPost()
+                    props.history.push(`/posts`)
                 }}
                 className="btn btn-primary">
                 {editMode ? "Update" : "Save"}

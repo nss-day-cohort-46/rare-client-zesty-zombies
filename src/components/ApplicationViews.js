@@ -41,6 +41,11 @@ export const ApplicationViews = (props) => {
             }>
                 
             </Route>
+            <Route path="/posts/edit/:postId(\d+)" render={
+                (props) => {return <PostForm {...props}/>}
+            }>
+                
+            </Route>
             <Route path="/posts/create">
                 <PostForm />
             </Route>
